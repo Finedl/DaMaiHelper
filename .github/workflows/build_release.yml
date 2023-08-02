@@ -28,12 +28,6 @@ jobs:
       with:
         files: ${{ github.workspace }}/app/build/outputs/apk/release/app-release.apk
         token: ${{ secrets.GITHUB_TOKEN }}
-      #上传到蒲公英
-    - name: Upload File to Pgyer
-      uses: PGYER/pgyer-upload-app-action@v1.3
-      with:
-        _api_key: ${{ secrets.PGYER_API_KEY }}
-        appFilePath: ${{ github.workspace }}/app/build/outputs/apk/release/app-release.apk
       #存档apk
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
