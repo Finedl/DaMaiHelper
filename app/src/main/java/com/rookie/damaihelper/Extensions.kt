@@ -141,11 +141,11 @@ fun Context.startApp(urlScheme: String, errorTips: String) {
  * */
 fun AccessibilityNodeInfo.getNodeById(id: String): AccessibilityNodeInfo? {
     var count = 0
-    while (count < 10) {
+    while (count < 1000) {
         findAccessibilityNodeInfosByViewId(id).let {
             if (!it.isNullOrEmpty()) return it[0]
         }
-        sleep(100)
+        sleep(1)
         count++
     }
     logD("查找组件，id:$id 找不到")
@@ -159,11 +159,11 @@ fun AccessibilityNodeInfo.getNodeById(id: String): AccessibilityNodeInfo? {
  * */
 fun AccessibilityNodeInfo.getNodesById(id: String): List<AccessibilityNodeInfo>? {
     var count = 0
-    while (count < 10) {
+    while (count < 10000) {
         findAccessibilityNodeInfosByViewId(id).let {
             if (!it.isNullOrEmpty()) return it
         }
-        sleep(100)
+        sleep(1)
         count++
     }
     return null
@@ -180,7 +180,7 @@ fun AccessibilityNodeInfo.getNodeByText(
     allMatch: Boolean = false
 ): AccessibilityNodeInfo? {
     var count = 0
-    while (count < 10) {
+    while (count < 10000) {
         findAccessibilityNodeInfosByText(text).let {
             if (!it.isNullOrEmpty()) {
                 if (allMatch) {
@@ -189,7 +189,7 @@ fun AccessibilityNodeInfo.getNodeByText(
                     return it[0]
                 }
             }
-            sleep(100)
+            sleep(1)
             count++
         }
     }
@@ -208,7 +208,7 @@ fun AccessibilityNodeInfo.getNodesByText(
     allMatch: Boolean = false
 ): List<AccessibilityNodeInfo>? {
     var count = 0
-    while (count < 10) {
+    while (count < 10000) {
         findAccessibilityNodeInfosByText(text).let {
             if (!it.isNullOrEmpty()) {
                 return if (allMatch) {
@@ -219,7 +219,7 @@ fun AccessibilityNodeInfo.getNodesByText(
                     it
                 }
             }
-            sleep(100)
+            sleep(1)
             count++
         }
     }
@@ -240,7 +240,7 @@ fun AccessibilityNodeInfo?.text(): String {
 fun AccessibilityNodeInfo?.click() {
     if (this == null) return
     if (this.isClickable) {
-        sleep(100)
+        sleep(10)
         this.performAction(AccessibilityNodeInfo.ACTION_CLICK)
         return
     } else {
