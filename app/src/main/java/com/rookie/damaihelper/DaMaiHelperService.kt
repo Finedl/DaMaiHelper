@@ -170,7 +170,7 @@ class DaMaiHelperService : AccessibilityService(), UserManager.IStartListener {
 
     private fun confirmOrder(event: AccessibilityEvent) {
         event.source?.let { source ->
-            sleep(100)
+            sleep(1)
             val buyView = source.getNodeById(dmNodeId(ID_CONFIRM_BUY))
             buyView?.click()
         }
