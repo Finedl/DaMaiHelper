@@ -116,7 +116,7 @@ class DaMaiHelperService : AccessibilityService(), UserManager.IStartListener {
                 ME_UI -> {
                     step = STEP_FIRST
                     event.source?.let { source ->
-                        sleep(500)
+                        sleep(1)
                         val wantView = source.getNodeByText("想看&想玩")
                         wantView?.click()
                         val buyView = source.getNodeByText(UserManager.singer)
