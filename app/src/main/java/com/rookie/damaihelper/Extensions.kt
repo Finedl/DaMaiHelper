@@ -141,7 +141,7 @@ fun Context.startApp(urlScheme: String, errorTips: String) {
  * */
 fun AccessibilityNodeInfo.getNodeById(id: String): AccessibilityNodeInfo? {
     var count = 0
-    while (count < 1000) {
+    while (count < 1800000) {
         findAccessibilityNodeInfosByViewId(id).let {
             if (!it.isNullOrEmpty()) return it[0]
         }
@@ -159,7 +159,7 @@ fun AccessibilityNodeInfo.getNodeById(id: String): AccessibilityNodeInfo? {
  * */
 fun AccessibilityNodeInfo.getNodesById(id: String): List<AccessibilityNodeInfo>? {
     var count = 0
-    while (count < 10000) {
+    while (count < 1800000) {
         findAccessibilityNodeInfosByViewId(id).let {
             if (!it.isNullOrEmpty()) return it
         }
@@ -180,7 +180,7 @@ fun AccessibilityNodeInfo.getNodeByText(
     allMatch: Boolean = false
 ): AccessibilityNodeInfo? {
     var count = 0
-    while (count < 10000) {
+    while (count < 1800000) {
         findAccessibilityNodeInfosByText(text).let {
             if (!it.isNullOrEmpty()) {
                 if (allMatch) {
@@ -208,7 +208,7 @@ fun AccessibilityNodeInfo.getNodesByText(
     allMatch: Boolean = false
 ): List<AccessibilityNodeInfo>? {
     var count = 0
-    while (count < 10000) {
+    while (count < 1800000) {
         findAccessibilityNodeInfosByText(text).let {
             if (!it.isNullOrEmpty()) {
                 return if (allMatch) {
